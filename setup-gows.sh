@@ -1,24 +1,23 @@
-#!/bin/bash
+#!/usr/bin/bash
 # *****************************************************************************
-# Setup Go Workspace with this scipt's path as GOPATH
-#  - Note: GOPATH is where all non-standard libraries are stored
+# Setup Go Workspace 
 # *****************************************************************************
-
-# Get the path of the directory containing this script
-CURR_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+GOPATH=$HOME/go
+mkdir -p $GOPATH
 
 # Create bin, pkg, src if they don't already exist
-if [ ! -d $CURR_PATH/bin ]; then
-    mkdir bin
-fi
-if [ ! -d $CURR_PATH/pkg ]; then
-    mkdir pkg
-fi
-if [ ! -d $CURR_PATH/src ]; then
-    mkdir src
-fi
+mkdir -p $GOPATH/bin
+mkdir -p $GOPATH/pkg
+mkdir -p $GOPATH/src
 
 # Export go workspace varaibles
-export GOPATH=$CURR_PATH
-export GOBIN=$CURR_PATH/bin
+export GOPATH=$GOPATH
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
+
+# Check if go cmd exists
+
+# Install godeps, cuz everyone should have godeps
+
+# Install other useful go packages
+
