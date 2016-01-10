@@ -14,9 +14,9 @@ if __name__ == "__main__":
 
         # Note: When selenium can't find the link, an exception is thrown.
         #       For our purposes, this means clicking the link was successful
-        #       in the last iteration, and the script will exit right here.
-        #       So, the browser will be kept open and the user can enter the
-        #       captcha.
+        #       in the last iteration, and we have nagivated away. So, the
+        #       script will exit here and the brower will be left open for
+        #       a human user to enter the captcha.
         link = driver.find_element_by_link_text('click here')
 
         link.click()
