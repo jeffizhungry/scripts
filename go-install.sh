@@ -3,13 +3,15 @@ VERSION='1.7'
    
 function main {
    if [[ `uname` != 'Linux' && `uname` != 'Darwin' ]]; then
-      echo "Error: This install script is only for linux systems"
+      echo "Error: This install script is only for linux/darwin systems"
       exit 1
    fi
    if [[ `whoami` != 'root' ]]; then
       echo "Error: Please run as root"
       exit 1
    fi
+
+   OPSYS="`uname` | awk '{print tolower($0)}'"
 
    # Get correct Go distribution
    GO_DIST=""
