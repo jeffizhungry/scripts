@@ -11,7 +11,7 @@
 # -------------------------------------
 # Variables
 # -------------------------------------
-TMPFILE="$2-config.sh"
+TMPFILE="none-config.sh"
 APP=
 RESET_FLAG=
 EXPORT_FLAG=
@@ -30,13 +30,13 @@ function print_help() {
          "local environment. \nUse wisely..."
     echo ""
     echo "options:"
-    echo "-h, --help       show help menu"
-    echo "--app            specify heroku app"
+    echo "  -h, --help       show help menu"
+    echo "  --app            specify heroku app"
     echo ""
-    echo "--show           show horoku app config vars in local env"
-    echo "--reset          clear heroku app config vars in local env"
-    echo "--export         export heroku app config vars to a file"
-    echo "--file           specify file to export to (default=$TMPFILE)"
+    echo "  --show           show horoku app config vars in local env"
+    echo "  --reset          clear heroku app config vars in local env"
+    echo "  --export         export heroku app config vars to a file"
+    echo "  --file           specify file to export to (default=$TMPFILE)"
     echo ""
     echo "examples:"
     echo "  source $0 --app <myapp>          # export config vars to local env"
@@ -94,6 +94,8 @@ function main {
         print_help
         return 1
     fi
+
+    TMPFILE="$APP-config.sh"
 
     # -------------------------------------
     # Export Config Vars
